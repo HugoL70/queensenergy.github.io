@@ -166,14 +166,21 @@
 
   <script>
     function showTab(index) {
-      const tabs = document.querySelectorAll('.tab');
-      const containers = document.querySelectorAll('.iframe-container');
+    const tabs = document.querySelectorAll('.tab');
+    const containers = document.querySelectorAll('.iframe-container');
+    const iframes = document.querySelectorAll('.iframe-container iframe');
 
-      tabs.forEach((tab, i) => {
-        tab.classList.toggle('active', i === index);
-        containers[i].classList.toggle('active', i === index);
-      });
-    }
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', i === index);
+      containers[i].classList.toggle('active', i === index);
+
+      // Force reload the iframe when it becomes visible
+      if (i === index) {
+        const src = iframes[i].getAttribute('src');
+        iframes[i].setAttribute('src', src); // triggers reload
+      }
+    });
+  }
   </script>
 
   </section>
