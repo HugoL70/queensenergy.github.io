@@ -4,6 +4,43 @@
   <meta charset="UTF-8">
   <title>Queens' College Energy Project</title>
   <style>
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background-color: #f1f1f1;
+      border-right: 1px solid #ccc;
+    }
+
+    .tab.active {
+      background-color: #fff;
+      font-weight: bold;
+      border-bottom: 2px solid white;
+    }
+
+    .iframe-container {
+      display: none;
+      width: 100%;
+      height: 500px;
+    }
+
+    .iframe-container.active {
+      display: block;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -108,6 +145,36 @@
     </p>
 
     <iframe src="agilepredict.html" style="width:100%; height:900px; border:none;"></iframe>
+
+    <p>TESTTEST</p>
+
+    <div class="tabs">
+    <button class="tab active" onclick="showTab(0)">Tab 1</button>
+    <button class="tab" onclick="showTab(1)">Tab 2</button>
+    <button class="tab" onclick="showTab(2)">Tab 3</button>
+  </div>
+
+  <div class="iframe-container active">
+    <iframe src="BCH 1_1.html"></iframe>
+  </div>
+  <div class="iframe-container">
+    <iframe src="BCH 1_2.html"></iframe>
+  </div>
+  <div class="iframe-container">
+    <iframe src="BCH 1_3.html"></iframe>
+  </div>
+
+  <script>
+    function showTab(index) {
+      const tabs = document.querySelectorAll('.tab');
+      const containers = document.querySelectorAll('.iframe-container');
+
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+        containers[i].classList.toggle('active', i === index);
+      });
+    }
+  </script>
 
   </section>
 
