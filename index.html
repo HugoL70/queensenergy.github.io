@@ -49,12 +49,17 @@
       display: block;
     }
 
-    iframe {
-      width: 100%;
-      height: 100%;
+    .graph {
       border: 1px solid #ddd;
       border-radius: 0 0 8px 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     body {
@@ -152,7 +157,9 @@
       Below are visual representations of our data, including outside temperature trends, heating and cooling power usage.
     </p>
 
+    <div class='graph'>
     <iframe src="tempvsheating.html" style="width:100%; height:500px; border:none;"></iframe>
+    </div>
 
     <p>BCH data</p>
 
